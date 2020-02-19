@@ -1,0 +1,1275 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@DanielMartin97 
+iamshwetabhardwaj
+/
+exam-scheduler
+Private
+1
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Security Insights
+Initial Commit.
+
+ master
+@iamshwetabhardwaj
+iamshwetabhardwaj committed on 23 Nov 2019
+0 parents commit 700df3132b5bcf2e7ad8d40c1dc9693ad8244b15
+Showing  with 26,654 additions and 0 deletions.
++24 −0  Code/exam-scheduler/HELP.md
++85 −0  Code/exam-scheduler/pom.xml
++20 −0  ...m-scheduler/src/main/java/com/old/school/developments/examscheduler/ExamSchedulerApplication.java
++13 −0  Code/exam-scheduler/src/main/java/com/old/school/developments/examscheduler/ServletInitializer.java
++22 −0  ...heduler/src/main/java/com/old/school/developments/examscheduler/configuration/AppInitializer.java
++56 −0  .../src/main/java/com/old/school/developments/examscheduler/configuration/SecurityConfiguration.java
++8 −0  .../main/java/com/old/school/developments/examscheduler/configuration/SpringSecurityInitializer.java
++189 −0  ...am-scheduler/src/main/java/com/old/school/developments/examscheduler/controller/HomeResource.java
++75 −0  ...am-scheduler/src/main/java/com/old/school/developments/examscheduler/model/ConfirmationToken.java
++80 −0  Code/exam-scheduler/src/main/java/com/old/school/developments/examscheduler/model/User.java
++11 −0  ...c/main/java/com/old/school/developments/examscheduler/repository/ConfirmationTokenRepository.java
++11 −0  ...-scheduler/src/main/java/com/old/school/developments/examscheduler/repository/UserRepository.java
++5 −0  Code/exam-scheduler/src/main/java/com/old/school/developments/examscheduler/service/UserService.java
++24 −0  ...uler/src/main/java/com/old/school/developments/examscheduler/service/impl/EmailSenderService.java
++5 −0  ...heduler/src/main/java/com/old/school/developments/examscheduler/service/impl/UserServiceImpl.java
++43 −0  Code/exam-scheduler/src/main/resources/application.properties
++3,719 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.css
++1 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.css.map
++7 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.min.css
++1 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.min.css.map
++331 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.css
++1 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.css.map
++8 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.min.css
++1 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.min.css.map
++10,038 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap.css
++1 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap.css.map
++8 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap.min.css
++1 −0  Code/exam-scheduler/src/main/resources/static/css/bootstrap.min.css.map
++44 −0  Code/exam-scheduler/src/main/resources/static/css/signin.css
+BIN  Code/exam-scheduler/src/main/resources/static/images/logo.jpg
++7,013 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.js
++1 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.js.map
++7 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.min.js
++1 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.min.js.map
++4,435 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.js
++1 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.js.map
++7 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.min.js
++1 −0  Code/exam-scheduler/src/main/resources/static/js/bootstrap.min.js.map
++99 −0  Code/exam-scheduler/src/main/resources/templates/forgot-password.html
++8 −0  Code/exam-scheduler/src/main/resources/templates/home.html
++111 −0  Code/exam-scheduler/src/main/resources/templates/login.html
++84 −0  Code/exam-scheduler/src/main/resources/templates/reset-password.html
++13 −0  ...eduler/src/test/java/com/old/school/developments/examscheduler/ExamSchedulerApplicationTests.java
++41 −0  README.md
+BIN  UI-Screens/1-Login-Page/Login-Page-Notes.pdf
+BIN  UI-Screens/1-Login-Page/Login.JPG
+BIN  UI-Screens/2-Login-Functionality/Forgot-Password.JPG
+BIN  UI-Screens/2-Login-Functionality/Reset-Password.JPG
+ 24  Code/exam-scheduler/HELP.md 
+@@ -0,0 +1,24 @@
+# Getting Started
+
+### Reference Documentation
+For further reference, please consider the following sections:
+
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/maven-plugin/)
+* [Spring Web](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/reference/htmlsingle/#boot-features-developing-web-applications)
+* [Spring Security](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/reference/htmlsingle/#boot-features-security)
+* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/reference/htmlsingle/#boot-features-jpa-and-spring-data)
+* [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/reference/htmlsingle/#boot-features-spring-mvc-template-engines)
+
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+* [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
+* [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
+* [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
+* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
+
+ 85  Code/exam-scheduler/pom.xml 
+@@ -0,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.old.school.developments</groupId>
+	<artifactId>exam-scheduler</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>exam-scheduler</name>
+	<description>Exam Scheduler Application</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+ 20  ...ler/src/main/java/com/old/school/developments/examscheduler/ExamSchedulerApplication.java 
+@@ -0,0 +1,20 @@
+package com.old.school.developments.examscheduler;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class ExamSchedulerApplication extends SpringBootServletInitializer {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ExamSchedulerApplication.class, args);
+	}
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ExamSchedulerApplication.class);
+    }
+
+}
+ 13  ...scheduler/src/main/java/com/old/school/developments/examscheduler/ServletInitializer.java 
+@@ -0,0 +1,13 @@
+package com.old.school.developments.examscheduler;
+
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+public class ServletInitializer extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(ExamSchedulerApplication.class);
+	}
+
+}
+ 22  ...src/main/java/com/old/school/developments/examscheduler/configuration/AppInitializer.java 
+@@ -0,0 +1,22 @@
+package com.old.school.developments.examscheduler.configuration;
+
+import org.springframework.security.access.SecurityConfig;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+   @Override
+   protected Class<?>[] getRootConfigClasses() {
+      return new Class[] { SecurityConfig.class };
+   }
+
+   @Override
+   protected Class<?>[] getServletConfigClasses() {
+      return new Class[1]; // { WebMvcConfig.class };
+   }
+
+   @Override
+   protected String[] getServletMappings() {
+      return new String[] { "/" };
+   }
+} 
+ 56  ...n/java/com/old/school/developments/examscheduler/configuration/SecurityConfiguration.java 
+@@ -0,0 +1,56 @@
+package com.old.school.developments.examscheduler.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth)
+			throws Exception {
+		auth.inMemoryAuthentication()
+			.withUser("user")
+			.password("test")
+			.roles("USER");
+	}
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http	
+			.csrf().disable()
+			.authorizeRequests()
+			.antMatchers("/templates/**", "/login", "/forgot-password", "/reset-password", "/confirm-reset", "/css/**", "/js/**", "/images/**", "/")
+			//.antMatchers("/", "/templates/**", "/css/**", "/js/**")
+			.permitAll()
+			.anyRequest().authenticated()
+	          .and()
+	          .formLogin()
+	          .loginPage("/login.html")
+	          .loginProcessingUrl("/perform_login")
+	          .defaultSuccessUrl("/homepage.html", true)
+	          .failureUrl("/login.html?error=true")
+	          .permitAll()
+	          //.failureHandler(authenticationFailureHandler())
+	          .and()
+	          .logout()
+	          .logoutUrl("/perform_logout")
+	          .deleteCookies("JSESSIONID")
+	          .logoutSuccessUrl("/login?logout=true")
+	            .invalidateHttpSession(true)
+	            .permitAll()
+	          //.logoutSuccessHandler(logoutSuccessHandler())
+	          ;
+	}
+
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+ 8  ...va/com/old/school/developments/examscheduler/configuration/SpringSecurityInitializer.java 
+@@ -0,0 +1,8 @@
+package com.old.school.developments.examscheduler.configuration;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class SpringSecurityInitializer extends
+		AbstractSecurityWebApplicationInitializer {
+
+}
+ 189  ...uler/src/main/java/com/old/school/developments/examscheduler/controller/HomeResource.java 
+@@ -0,0 +1,189 @@
+package com.old.school.developments.examscheduler.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.old.school.developments.examscheduler.model.ConfirmationToken;
+import com.old.school.developments.examscheduler.model.User;
+import com.old.school.developments.examscheduler.repository.ConfirmationTokenRepository;
+import com.old.school.developments.examscheduler.repository.UserRepository;
+import com.old.school.developments.examscheduler.service.impl.EmailSenderService;
+
+@Controller
+public class HomeResource {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private ConfirmationTokenRepository confirmationTokenRepository;
+
+	@Autowired
+	private EmailSenderService emailSenderService;
+
+	// Instantiate our encoder
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+
+	@Value("${spring.mail.from.email}")
+	private String senderEmailAddress;
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView loginPage(
+			@RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout,
+			User user, ModelAndView modelAndView) {
+		String errorMessge = null;
+		if (error != null) {
+			errorMessge = "Username or Password is incorrect !!";
+			modelAndView.setViewName("login");
+		}
+		if (logout != null) {
+			errorMessge = "You have been successfully logged out !!";
+			modelAndView.setViewName("login");
+		}
+
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("errorMessage", errorMessge);
+		if (null == error && null == logout) {
+			modelAndView.setViewName("login");
+		}
+		return modelAndView;
+	}
+
+	// Function to handle the login process
+    @RequestMapping(value="/login", method=RequestMethod.POST)
+    public ModelAndView loginUser(ModelAndView modelAndView, User user) {
+        User existingUser = userRepository.findByEmailIdIgnoreCase(user.getEmailId());
+        if (existingUser != null) {
+            // Use encoder.matches to compare raw password with encrypted password
+
+            if (encoder.matches(user.getPassword(), existingUser.getPassword())){
+                // Successfully logged in
+                modelAndView.addObject("message", "Successfully logged in!");
+                modelAndView.setViewName("successLogin");
+            } else {
+                // Wrong password
+                modelAndView.addObject("errorMessage", "Incorrect password. Try again.");
+                modelAndView.setViewName("login");
+            }
+        } else {
+            modelAndView.addObject("errorMessage", "The email provided does not exist!");
+            modelAndView.setViewName("login");
+        }
+        return modelAndView;
+    }
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutPage(HttpServletRequest request,
+			HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/login?logout=true";
+	}
+
+	@RequestMapping(value = "/forgot-password", method = RequestMethod.GET)
+	public ModelAndView displayForgotPassword(ModelAndView modelAndView,
+			User user) {
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("forgot-password");
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
+	public ModelAndView forgotUserPassword(ModelAndView modelAndView, User user) {
+		User existingUser = userRepository.findByEmailIdIgnoreCase(user
+				.getEmailId());
+		if (existingUser != null) {
+			// Create token
+			ConfirmationToken confirmationToken = new ConfirmationToken(
+					existingUser);
+
+			// Save it
+			confirmationTokenRepository.save(confirmationToken);
+
+			// Create the email
+			SimpleMailMessage mailMessage = new SimpleMailMessage();
+			mailMessage.setTo(existingUser.getEmailId());
+			mailMessage.setSubject("Complete Password Reset!");
+			mailMessage.setFrom(senderEmailAddress);
+			mailMessage
+					.setText("To complete the password reset process, please click here: "
+							+ "http://localhost:8080/confirm-reset?token="
+							+ confirmationToken.getConfirmationToken());
+
+			// Send the email
+			emailSenderService.sendEmail(mailMessage);
+
+			modelAndView
+					.addObject("message",
+							"Request to reset password received. Check your inbox for the reset link.");
+			modelAndView.setViewName("reset-password");
+
+		} else {
+			modelAndView.addObject("errorMessage",
+					"This email address does not exist!");
+			modelAndView.setViewName("forgot-password");
+		}
+		return modelAndView;
+	}
+
+	// Endpoint to confirm the token
+	@RequestMapping(value = "/confirm-reset", method = { RequestMethod.GET,
+			RequestMethod.POST })
+	public ModelAndView validateResetToken(ModelAndView modelAndView,
+			@RequestParam("token") String confirmationToken) {
+		ConfirmationToken token = confirmationTokenRepository
+				.findByConfirmationToken(confirmationToken);
+
+		if (token != null) {
+			User user = userRepository.findByEmailIdIgnoreCase(token.getUser()
+					.getEmailId());
+			user.setEnabled(true);
+			userRepository.save(user);
+			modelAndView.addObject("user", user);
+			modelAndView.addObject("emailId", user.getEmailId());
+			modelAndView.setViewName("reset-password");
+		} else {
+			modelAndView.addObject("message", "The link is invalid or broken!");
+			modelAndView.setViewName("error");
+		}
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/reset-password", method = RequestMethod.POST)
+	public ModelAndView resetUserPassword(ModelAndView modelAndView, User user) {
+		if (user.getEmailId() != null) {
+			// Use email to find user
+			User tokenUser = userRepository.findByEmailIdIgnoreCase(user
+					.getEmailId());
+			tokenUser.setPassword(encoder.encode(user.getPassword()));
+			userRepository.save(tokenUser);
+			modelAndView.addObject("user", user);
+			modelAndView
+					.addObject("message",
+							"Password successfully reset. You can now log in with the new credentials.");
+			modelAndView.setViewName("login");
+		} else {
+			modelAndView.addObject("message", "The link is invalid or broken!");
+			modelAndView.setViewName("error");
+		}
+		return modelAndView;
+	}
+
+}
+ 75  ...uler/src/main/java/com/old/school/developments/examscheduler/model/ConfirmationToken.java 
+@@ -0,0 +1,75 @@
+package com.old.school.developments.examscheduler.model;
+
+import java.util.Date;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class ConfirmationToken {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="token_id")
+	private long tokenid;
+
+	@Column(name="confirmation_token")
+	private String confirmationToken;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdDate;
+
+	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "user_id")
+    private User user;
+
+	public ConfirmationToken() {
+	}
+
+	public ConfirmationToken(User user) {
+		this.user = user;
+		createdDate = new Date();
+		confirmationToken = UUID.randomUUID().toString();
+	}
+
+	public String getConfirmationToken() {
+		return confirmationToken;
+	}
+
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public long getTokenid() {
+		return tokenid;
+	}
+
+	public void setTokenid(long tokenid) {
+		this.tokenid = tokenid;
+	}
+}
+ 80  Code/exam-scheduler/src/main/java/com/old/school/developments/examscheduler/model/User.java 
+@@ -0,0 +1,80 @@
+package com.old.school.developments.examscheduler.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="App_User")
+public class User {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="user_id")
+	private long userid;
+
+	@Column(name="emailId")
+	private String emailId;
+
+	@Column(name="password")
+	private String password;
+
+	@Column(name="first_name")
+	private String firstName;
+
+	@Column(name="last_name")
+	private String lastName;
+
+	private boolean isEnabled;
+
+	public long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(long userid) {
+		this.userid = userid;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+}
+ 11  ...ava/com/old/school/developments/examscheduler/repository/ConfirmationTokenRepository.java 
+@@ -0,0 +1,11 @@
+package com.old.school.developments.examscheduler.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.old.school.developments.examscheduler.model.ConfirmationToken;
+
+public interface ConfirmationTokenRepository extends
+		CrudRepository<ConfirmationToken, String> {
+	ConfirmationToken findByConfirmationToken(String confirmationToken);
+
+}
+ 11  ...er/src/main/java/com/old/school/developments/examscheduler/repository/UserRepository.java 
+@@ -0,0 +1,11 @@
+package com.old.school.developments.examscheduler.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.old.school.developments.examscheduler.model.User;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, String> {
+	User findByEmailIdIgnoreCase(String emailId);
+}
+ 5  ...cheduler/src/main/java/com/old/school/developments/examscheduler/service/UserService.java 
+@@ -0,0 +1,5 @@
+package com.old.school.developments.examscheduler.service;
+
+public interface UserService {
+
+}
+ 24  .../main/java/com/old/school/developments/examscheduler/service/impl/EmailSenderService.java 
+@@ -0,0 +1,24 @@
+package com.old.school.developments.examscheduler.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+
+
+@Service("emailSenderService")
+public class EmailSenderService {
+
+	private JavaMailSender javaMailSender;
+
+	@Autowired
+	public EmailSenderService(JavaMailSender javaMailSender) {
+		this.javaMailSender = javaMailSender;
+	}
+
+	@Async
+	public void sendEmail(SimpleMailMessage email) {
+		javaMailSender.send(email);
+	}
+}
+ 5  ...src/main/java/com/old/school/developments/examscheduler/service/impl/UserServiceImpl.java 
+@@ -0,0 +1,5 @@
+package com.old.school.developments.examscheduler.service.impl;
+
+public class UserServiceImpl {
+
+}
+ 43  Code/exam-scheduler/src/main/resources/application.properties 
+@@ -0,0 +1,43 @@
+spring.resources.add-mappings=true
+
+####### Data-Source Properties#######
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=
+
+###### JPA Properties######
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.hibernate.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+######Email Properties ######
+# add these new properties
+spring.mail.transport.protocol=smtp
+#spring.mail.from.email=<your-email-goes-here>
+spring.mail.from.email=support@examscheduler.com
+
+# modify these properties with your credentials
+#spring.mail.username=<your-email-goes-here>
+#spring.mail.password=<password-goes-here>
+
+logging.level.org.springframework=WARN
+logging.level.org.hibernate=WARN
+logging.level.com.springsecurity.demo=DEBUG
+
+
+###### View Properties######
+#spring.mvc.view.prefix=/WEB-INF/jsp/
+#spring.mvc.view.suffix=.jsp
+
+######Email Properties ######
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.username=test@gmail.com
+spring.mail.password=testpassword
+spring.mail.properties.mail.smtp.starttls.required=true
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.connectiontimeout=5000
+spring.mail.properties.mail.smtp.timeout=5000
+spring.mail.properties.mail.smtp.writetimeout=5000 
+ 3,719  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.css 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.css.map 
+Large diffs are not rendered by default.
+
+ 7  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.min.css 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/css/bootstrap-grid.min.css.map 
+Large diffs are not rendered by default.
+
+ 331  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.css 
+ 1  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.css.map 
+Large diffs are not rendered by default.
+
+ 8  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.min.css 
+ 1  Code/exam-scheduler/src/main/resources/static/css/bootstrap-reboot.min.css.map 
+Large diffs are not rendered by default.
+
+ 10,038  Code/exam-scheduler/src/main/resources/static/css/bootstrap.css 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/css/bootstrap.css.map 
+Large diffs are not rendered by default.
+
+ 8  Code/exam-scheduler/src/main/resources/static/css/bootstrap.min.css 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/css/bootstrap.min.css.map 
+Large diffs are not rendered by default.
+
+ 44  Code/exam-scheduler/src/main/resources/static/css/signin.css 
+@@ -0,0 +1,44 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 390px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+ BIN +35.1 KB Code/exam-scheduler/src/main/resources/static/images/logo.jpg 
+Binary file not shown.
+ 7,013  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.js 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.js.map 
+Large diffs are not rendered by default.
+
+ 7  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.min.js 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/js/bootstrap.bundle.min.js.map 
+Large diffs are not rendered by default.
+
+ 4,435  Code/exam-scheduler/src/main/resources/static/js/bootstrap.js 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/js/bootstrap.js.map 
+Large diffs are not rendered by default.
+
+ 7  Code/exam-scheduler/src/main/resources/static/js/bootstrap.min.js 
+Large diffs are not rendered by default.
+
+ 1  Code/exam-scheduler/src/main/resources/static/js/bootstrap.min.js.map 
+Large diffs are not rendered by default.
+
+ 99  Code/exam-scheduler/src/main/resources/templates/forgot-password.html 
+@@ -0,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Forgot Password</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		document.getElementById("errorMessage").textContent = "";
+		document.getElementById("error-div").style.display = "none";
+	});
+</script>
+
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/signin.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+</style>
+
+<script type="text/javascript">
+function clearError() {
+	document.getElementById("errorMessage").textContent="";
+	document.getElementById("error-div").style.display="none";
+}
+</script>
+
+</head>
+<body class="text-center">
+
+	<!-- <form id="register-form" autocomplete="off"
+		class="form-signin" method="post"> -->
+	<form class="form-signin" action="#" th:action="@{/forgot-password}"  th:object="${user}" method="post">
+		<img class="mb-3" th:src="@{/images/logo.jpg}" alt="">
+		<h2 class="text-center">Forgot Password?</h2>
+		<p>You can request a new password here.</p>
+
+		<div id="error-div" class="alert alert-danger">
+ 			<span id="errorMessage" th:text="${errorMessage}"></span>		
+		</div>
+
+		<div class="form-group">
+			<input
+				id="email" name="email" placeholder="Email" class="form-control"
+				th:field="*{emailId}" type="email" required autofocus
+				onkeyup="clearError();">
+		</div>
+		<div class="form-group">
+			<input name="recover-submit" class="btn btn-lg btn-primary btn-block"
+				value="Request New Password" type="submit">
+		</div>
+
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<div class="footer-copyright text-center py-3">
+		<p>
+			Contact Us &nbsp;&nbsp;&nbsp;&nbsp; <a href="@examscheduler"
+				data-toggle="tooltip" data-placement="bottom" title=""><i
+				class="fa fa-twitter"></i></a> &nbsp; &nbsp; <a
+				href="mailto:abc@xyz.com" data-toggle="tooltip"
+				data-placement="bottom"><i class="fa fa-envelope"></i></a> &nbsp;
+			&nbsp; <a href="123-456-7890" data-toggle="tooltip"
+				data-placement="bottom"><i class="fa fa-phone"></i></a>
+		</p>
+		<p>&copy; 2019</p>
+	</div>
+<!-- 
+	<input type="hidden" name="${_csrf.parameterName}"
+		value="${_csrf.token}" /> -->
+		</form>
+</body>
+</html>
+ 8  Code/exam-scheduler/src/main/resources/templates/home.html 
+@@ -0,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+    <head> <title>Login Success</title> </head>
+    <body>
+        <center> <span th:text="${message}"></span> </center>
+    </body>
+</html> 
+ 111  Code/exam-scheduler/src/main/resources/templates/login.html 
+@@ -0,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Login</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	  $('[data-toggle="tooltip"]').tooltip({
+	    selector: true,
+	    title: function() {
+	      return $(this).attr('href');
+	    }
+	  });
+
+	if (document.getElementById("errorMessage").textContent=="") {
+		document.getElementById("error-div").style.display="none";
+	} else {
+		document.getElementById("error-div").style.display="block";
+	}
+
+	if(document.getElementById("message").textContent=="") {
+		document.getElementById("message-div").style.display="none";
+	}
+
+});
+</script>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/signin.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+</style>
+
+<script type="text/javascript">
+function clearError() {
+	document.getElementById("errorMessage").textContent="";
+	document.getElementById("error-div").style.display="none";
+}
+</script>
+
+</head>
+<body class="text-center">
+	<form class="form-signin" action="#" th:action="@{/login}"  th:object="${user}" method="post">
+		<img class="mb-3" th:src="@{/images/logo.jpg}" alt="">
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+		<div id="error-div" class="alert alert-danger">
+ 			<span id="errorMessage" th:text="${errorMessage}"></span>
+ 		</div>
+
+		<div id="message-div" class="alert alert-success">
+ 			<span id="message" th:text="${message}"></span>
+ 		</div>
+
+		<label for="emailId" class="sr-only">ID</label> 
+		<input th:field="*{emailId}" 
+			type="text" id="emailId" class="form-control" placeholder="ID" required autofocus onkeyup="clearError();"> 
+		<label for="password" class="sr-only" >Password</label> 
+		<input th:field="*{password}" 
+			type="password" id="password" class="form-control"
+			placeholder="Password" required onkeyup="clearError();">
+
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+			in</button>
+		<p class="text-muted" align="right">
+			<a href="/forgot-password">Forgot Password</a>
+		</p>
+
+		<br /> <br /> <br /> <br />
+
+		<div class="footer-copyright text-center py-3">
+			<p>
+				Contact Us &nbsp;&nbsp;&nbsp;&nbsp; 
+				<a href="@examscheduler" data-toggle="tooltip" data-placement="bottom" title="" ><i class="fa fa-twitter"></i></a> 
+				&nbsp; &nbsp; 
+				<a href="mailto:abc@xyz.com" data-toggle="tooltip" data-placement="bottom" ><i class="fa fa-envelope"></i></a> 
+				&nbsp; &nbsp; 
+				<a href="123-456-7890" data-toggle="tooltip" data-placement="bottom" ><i class="fa fa-phone"></i></a>
+			</p>
+			<p>&copy; 2019</p>
+		</div>
+
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
+	</form>
+</body>
+</html>
+ 84  Code/exam-scheduler/src/main/resources/templates/reset-password.html 
+@@ -0,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Reset Password</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/signin.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+</style>
+
+</head>
+<body class="text-center">
+
+	<form id="register-form" autocomplete="off" th:object="${user}"
+		class="form-signin" method="post" action="#" th:action="@{/reset-password}">
+
+		<img class="mb-3" th:src="@{/images/logo.jpg}" alt="">
+		<h2 class="text-center">Reset Password?</h2>
+		<p>You can reset your password here.</p>
+		<div class="form-group">
+			<input
+				id="email" name="email" placeholder="Email" class="form-control"
+				type="email" readonly th:field="*{emailId}">
+		</div>
+		<div class="form-group">
+			<input
+				id="password" name="password" placeholder="Password" class="form-control"
+				type="password" required autofocus th:field="*{password}">
+		</div>
+		<div class="form-group">
+			<input name="recover-submit" class="btn btn-lg btn-primary btn-block"
+				value="Reset Password" type="submit">
+		</div>
+
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<div class="footer-copyright text-center py-3">
+		<p>
+			Contact Us &nbsp;&nbsp;&nbsp;&nbsp; <a href="@examscheduler"
+				data-toggle="tooltip" data-placement="bottom" title=""><i
+				class="fa fa-twitter"></i></a> &nbsp; &nbsp; <a
+				href="mailto:abc@xyz.com" data-toggle="tooltip"
+				data-placement="bottom"><i class="fa fa-envelope"></i></a> &nbsp;
+			&nbsp; <a href="123-456-7890" data-toggle="tooltip"
+				data-placement="bottom"><i class="fa fa-phone"></i></a>
+		</p>
+		<p>&copy; 2019</p>
+	</div>
+
+	<input type="hidden" name="${_csrf.parameterName}"
+		value="${_csrf.token}" />
+		</form>
+</body>
+</html>
+ 13  ...rc/test/java/com/old/school/developments/examscheduler/ExamSchedulerApplicationTests.java 
+@@ -0,0 +1,13 @@
+package com.old.school.developments.examscheduler;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ExamSchedulerApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
+ 41  README.md 
+@@ -0,0 +1,41 @@
+# Name of project 
+Examination Scheduler
+
+## Description 
+A project for scheduling examinations.
+
+### Project Overview
+TBD
+
+#### Configuration Instructions
+Following software(s) are expected to be pre-installed on your system to run this project - 
+* Java (v8)
+* Maven
+* Spring
+* PostgreSQL
+
+#### Technology Stack Used
+- Java (JDK v8)
+- Spring Boot (v2.1.7.RELEASE)
+- Spring MVC (v5.1.9.RELEASE)
+- Hibernate (v5.3.10.Final)
+- PostgreSQL (v42.2.6)
+
+#### Features being demonstrated
+1. Login
+
+#### Operational Instructions
+1. TBD
+
+#### A list of files included
+TBD
+
+#### Additional Notes
+TBD
+
+##### Developer Contact Information
+- TBD
+
+##### Changelog
+
+
+ BIN +85.5 KB UI-Screens/1-Login-Page/Login-Page-Notes.pdf 
+Binary file not shown.
+ BIN +62.3 KB UI-Screens/1-Login-Page/Login.JPG 
+Binary file not shown.
+ BIN +56.2 KB UI-Screens/2-Login-Functionality/Forgot-Password.JPG 
+Binary file not shown.
+ BIN +61.8 KB UI-Screens/2-Login-Functionality/Reset-Password.JPG 
+Binary file not shown.
+0 comments on commit 700df31
+@DanielMartin97
+ 
+ 
+Leave a comment
+
+Attach files by dragging & dropping, selecting or pasting them.
+ 
+ You’re not receiving notifications from this thread.
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
